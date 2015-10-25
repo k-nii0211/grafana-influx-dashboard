@@ -525,13 +525,13 @@ define(['config', 'getdash/getdash.conf'], function getDashApp (grafanaConf, get
         if (_.isUndefined(ds.database))
           return {
             datasource: ds.name,
-            url: ds.url + '/query?q=' + encodeURIComponent('SHOW TAG VALUES WITH KEY = host;')
+            url: ds.url + '/query?q=' + encodeURIComponent('SHOW TAG VALUES WITH KEY = hostname;')
           };
 
         return {
           datasource: ds.name,
           url: ds.url + '/query?db=' + ds.database + '&u=' + ds.username + '&p=' + ds.password +
-            '&q=' + encodeURIComponent('SHOW TAG VALUES WITH KEY = host;')
+            '&q=' + encodeURIComponent('SHOW TAG VALUES WITH KEY = hostname;')
         };
       });
     }));
@@ -565,7 +565,7 @@ define(['config', 'getdash/getdash.conf'], function getDashApp (grafanaConf, get
       'title': 'Docs',
       'panels': [
         {
-          'content': '<div class="row-fluid">\n\t<div class="span12">\n\t\t<a href="https://github.com/anryko/grafana-influx-dashboard"><h4>Grafana InfluxDB Scripted Dashboard Documentation</h4></a>\n\t</div>\n</div>'
+          'content': '<div class="row-fluid">\n\t<div class="span12">\n\t\t<a href="https://github.com/k-nii0211/grafana-influx-dashboard"><h4>Grafana InfluxDB Scripted Dashboard Documentation</h4></a>\n\t</div>\n</div>'
         }
       ]
     });
