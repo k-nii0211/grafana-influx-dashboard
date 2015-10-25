@@ -9,9 +9,8 @@
 // Accessable variables in this scope
 var window, document, ARGS, $, jQuery, moment, kbn;
 
-
+'use strict';
 return function scriptedDashboard (callback) {
-  'use strict';
 
   require(['getdash/getdash.app'], function getDahs (dash) {
 

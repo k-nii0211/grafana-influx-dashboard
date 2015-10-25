@@ -542,7 +542,7 @@ define(['config', 'getdash/getdash.conf'], function getDashApp (grafanaConf, get
   var setupDefaultDashboard = function setupDefaultDashboard (hostsAll, dashboard) {
     var hostsLinks = _.reduce(hostsAll, function (string, host) {
       return string + '\n\t\t\t<li>\n\t\t\t\t<a href="' +
-        window.location.href + '?host=' + host +
+        window.location.href + '?hostname=' + host +
         '" onclick="window.location.href=this.href;">' +
         host + '</a>\n\t\t\t</li>';
     }, '');
@@ -700,14 +700,14 @@ define(['config', 'getdash/getdash.conf'], function getDashApp (grafanaConf, get
           return {
             datasource: ds.name,
             url: ds.url + '/query?q=' + fixedEncodeURIComponent('SHOW SERIES FROM /' +
-                qConf.regexp + '.*/ ' + 'WHERE host = \'' + hostName + '\';')
+                qConf.regexp + '.*/ ' + 'WHERE hostname = \'' + hostName + '\';')
           };
 
         return {
           datasource: ds.name,
           url: ds.url + '/query?db=' + ds.database + '&u=' + ds.username +
             '&p=' + ds.password + '&q=' + fixedEncodeURIComponent('SHOW SERIES FROM /' +
-              qConf.regexp + '.*/ ' + 'WHERE host = \'' + hostName + '\';')
+              qConf.regexp + '.*/ ' + 'WHERE hostname = \'' + hostName + '\';')
         };
       });
     }));
